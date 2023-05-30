@@ -1,4 +1,7 @@
+<h1>Sentences</h1>
 
-<% @sentences.each do |sentence| %>
-    <p><%= sentence.text %></p>
-<% end %>
+<ul>
+  <% @sentences.each do |sentence| %>
+    <li><%= link_to sentence.text, sentence_path(sentence) %></li>
+  <% end %>
+</ul>
