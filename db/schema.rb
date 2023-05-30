@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 2023_05_30_205203) do
 
   create_table "entities", force: :cascade do |t|
+    t.integer "sentence_id"
     t.string "text"
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["sentence_id"], name: "index_entities_on_sentence_id"
   end
 
   create_table "sentences", force: :cascade do |t|
