@@ -1,4 +1,5 @@
 class SentencesController < ApplicationController
-    def index
-    end
+  def index
+    @sentences = Sentence.all
+  end
 end

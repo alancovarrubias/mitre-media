@@ -10,21 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_30_205203) do
-
-  create_table "entities", force: :cascade do |t|
-    t.integer "sentence_id"
-    t.string "text"
-    t.string "type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["sentence_id"], name: "index_entities_on_sentence_id"
+ActiveRecord::Schema.define(version: 20_230_530_205_203) do
+  create_table 'entities', force: :cascade do |t|
+    t.integer 'sentence_id'
+    t.string 'text'
+    t.string 'entity_type'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['sentence_id'], name: 'index_entities_on_sentence_id'
   end
 
-  create_table "sentences", force: :cascade do |t|
-    t.string "text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'sentences', force: :cascade do |t|
+    t.string 'text'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
-
 end

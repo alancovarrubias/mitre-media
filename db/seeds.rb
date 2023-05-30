@@ -24,6 +24,6 @@ seed_data.each do |data|
   sentence = Sentence.create(text: data[:sentence])
 
   data[:entities].each do |entity|
-    sentence.entities.create(entity)
+    sentence.entities.create(text: entity[:text], entity_type: entity[:type])
   end
 end
