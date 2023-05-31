@@ -1,3 +1,11 @@
 <h1>Sentence <%= @sentence.id %></h1>
 
-<p><%= add_span_to_words(@sentence) %></p>
+<p><%= highlight_words(@sentence) %></p>
+
+<%= form_with(model: [@sentence, Entity.new]) do |form| %>
+  <%= form.label :text %>
+  <%= form.text_field :text %>
+  <%= form.label :entity_type %>
+  <%= form.text_field :entity_type %>
+  <%= form.submit 'Create Entity' %>
+<% end %>
