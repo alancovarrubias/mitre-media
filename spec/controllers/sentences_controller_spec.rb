@@ -1,35 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe SentencesController, type: :controller do
+  let(:sentence) { Sentence.create(text: 'This is a sentence.') }
   describe 'GET index' do
-    it 'assigns the correct sentence to @sentence' do
-      sentence = Sentence.create(text: 'This is a sentence.')
-
+    before do
       get :index
+    end
 
+    it 'assigns the correct sentence to @sentence' do
       expect(assigns(:sentences)).to eq([sentence])
     end
 
     it 'renders the index template' do
-      get :index
       expect(response).to render_template(:index)
     end
   end
 
   describe 'GET show' do
-    it 'assigns the correct sentence to @sentence' do
-      sentence = Sentence.create(text: 'This is a sentence.')
-
+    before do
       get :show, params: { id: sentence.id }
+    end
 
+    it 'assigns the correct sentence to @sentence' do
       expect(assigns(:sentence)).to eq(sentence)
     end
 
     it 'renders the show template' do
-      sentence = Sentence.create(text: 'This is a sentence.')
-
-      get :show, params: { id: sentence.id }
-
       expect(response).to render_template(:show)
     end
   end
